@@ -1,19 +1,22 @@
-"use client"
+"use client";
 
-import Link from 'next/link'
-import styles from './menuLink.module.css'
-import {usePathname } from 'next/navigation'
+import Link from "next/link";
+import styles from "./menuLink.module.css";
+import { usePathname } from "next/navigation";
 
-const MenuLink = ({item}) => {
+const MenuLink = ({ item }) => {
+  const pathname = usePathname();
+  return (
+    <Link
+      href={item.path}
+      className={`${styles.container} ${
+        pathname === item.path && styles.active
+      }`}
+    >
+      {item.icon}
+      {item.title}
+    </Link>
+  );
+};
 
-    const pathname = usePathname();
-    console.log(pathname);
-    return (
-        <Link href={item.path} className={`${styles.container} ${pathname === item.path && styles.active}`}>
-            {item.icon}
-            {item.title}
-        </Link>
-    )
-}
-
-export default MenuLink
+export default MenuLink;
