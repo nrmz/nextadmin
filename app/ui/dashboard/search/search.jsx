@@ -5,7 +5,7 @@ const Search = ({ placeholder }) => {
   return (
     <div className={styles.container}>
       <MdSearch />
-      <input type="text" placeholder={placeholder} class={styles.input} />
+      <input type="text" placeholder={placeholder} className={styles.input} />
     </div>
   );
 };
